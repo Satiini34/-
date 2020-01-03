@@ -1,0 +1,59 @@
+<view style='width:100%;height:100%;overflow-x:hidden;'>
+  <view class='regis_header'>
+    <image src='../../img/realRegis.png' style='width:100px;height:75px;'></image>
+    <view style='margin-top:30rpx;'>
+      <text style='font-size:32rpx;color:#333;font-weight:bold;'>认证提示</text> 
+    </view>
+    <view style='margin-top:30rpx;'>
+      <text style='font-size:24rpx;color:#999;'>实名认证</text>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class='regis_name'>
+      <view class='sort_name'>姓名<i style='color: red'>*</i></view><input placeholder="请输入真实姓名" placeholder-style='font-size:24rpx;' name='name' class='name_input' value='{{realName}}' />
+    </view>
+    <view class='horii' />
+    <view class='regis_name'>
+      <view class='sort_name'>手机号<i style='color: red'>*</i></view><input value="{{mobileValue}}" placeholder-style='font-size:24rpx;' name='mobile' style='color:{{mobileColor}}' class='name_input' disabled /><button class='phoneAuthor' hover-class='hover' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{mobileText}}</button>
+    </view>
+    <view class='horii' />
+    <view class='regis_name'>
+      <view class='sort_name'>性别<i style='color: red'>*</i></view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='name_inputGender' style='color:{{pickerColor}}'>
+        <view>
+          {{pickerValue}}
+        </view>
+      </picker>
+    </view>
+    <view class='horii' />
+    <view class='regis_name'>
+      <view class='sort_name'>学历</view>
+      <picker bindchange="bindPickerChange_education" range="{{array1}}" class='name_inputGender' style='color:{{pickerColor1}}'>
+        <view class="{{pickerValue1 == '请填写学历' ? 'colorNotPicked' : 'colorPicked'}}">
+          {{pickerValue1}}
+        </view>
+      </picker>
+    </view>
+    <view class='horii' />
+    <view class='regis_name'>
+      <view class='sort_name'>年龄</view>
+      <!-- <picker bindchange="bindPickerChange_age"  mode='multiSelector' range="{{array2}}" class='name_inputGender' style='color:{{pickerColor1}}'>
+        <view>
+          {{pickerValue1}}
+        </view>
+      </picker> -->
+      <input placeholder="请输入年龄" type='number' maxlength='2' placeholder-style='font-size:24rpx;' name='age' class='name_input' value='{{age}}' />
+    </view>
+    <view class='horii' />
+    <view class='regis_name' wx:if='{{!canNotSkip}}'>
+      <view class='sort_name'>体检号</view><input placeholder="请输入体检号" placeholder-style='font-size:24rpx;' name='medical' class='name_input' />
+    </view>
+    <view class='horii' wx:if='{{!canNotSkip}}' />
+    <view class='regis_bottom'>
+      <view class='regisBottom_left' bindtap='skip'>跳过</view>
+      <button form-type="submit" class='regisBottom_right'>提交</button>
+    </view>
+  </form>
+</view>
+
+

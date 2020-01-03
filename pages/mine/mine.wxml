@@ -1,0 +1,88 @@
+<view class='mineHeader' catchtap='setting'>
+  <image src='../../img/noLoginHead.png' style='width:49px;height:49px;' class='noLoginHead' wx:if='{{!isLogin}}'></image>
+  <image src='{{userInfo.headimgurl}}' style='width:100rpx;height:100rpx;border-radius:50%;' class='noLoginHead' wx:if='{{isLogin}}' catchtap='setting'></image>
+  <button class='noLogin' open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" wx:if='{{!isLogin}}'>登录</button>
+  <text wx:if='{{isLogin}}' class='watchMore' catchtap='setting'>查看个人资料</text>
+  <text class='nickName' catchtap='setting'>{{userInfo.nickname}}</text>
+  <!-- <image src='../../img/setting.png' style='width:16px;height:16px;position:absolute;top:30rpx;right:30rpx;' bindtap='setting' wx:if='{{isLogin}}' /> -->
+</view> 
+
+<!-- 登录状态 -->
+<view class='mineContent' wx:if='{{isLogin}}'>
+  <view class='mineContent_header'>
+    <view class='mineContent_header_complete' bindtap='complete'>
+      <text class="{{choice == 1 ?'mineContent_header_complete_text':'mineContent_header_nocomplete'}}">已完成测评</text> 
+    </view>
+    <view class='mineContent_header_nocomplete' bindtap='nocomplete'>
+      <text class="{{choice == 2 ?'mineContent_header_complete_text':'mineContent_header_nocomplete'}}">未完成测评</text> 
+    </view>
+  </view>
+  <view class='mineContent_content_complete' wx:if='{{choice == 1 && havedoneShow}}'>
+    <view style='padding-top:140rpx;' wx:if='{{!havedone}}'>
+      <image src='../../img/noRecord.png' style='width:100px;height:80px;' />
+      <view class='mineContent_noLogin_text'>你没有完成测评记录</view>
+      <view class='toComplete' bindtap='toComplete'>去完成测评</view>
+    </view>
+    <view class='textBox' bindtap='testDetail' wx:for='{{havedoneList}}'  wx:key='index' wx:if='{{havedone}}' data-all='{{item}}'>
+      <view class='textBox_left'>
+        <view class='textBox_title'>
+          {{item.scale_name}}
+        </view>
+        <view class='create_time'>
+          测评时间：{{item.create_time}}
+        </view>
+        <view class='textBox_content'>
+          {{item.intro}}
+        </view>
+        <view class='textBox_bottom'>
+          <view>
+            <image src='../../img/clock.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+            <text class='textBox_bottom_text'>测试时间：{{item.duration}}分钟</text>
+          </view>
+          <view>
+            <image src='../../img/test.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+            <text class='textBox_bottom_text'>题目：0/{{item.subject_num}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='textBox_right'>
+        <image src="{{'https://xcx.cepingle.com' + item.scale_pic}}" class='textBox_right_image'></image>
+      </view>
+    </view>
+  </view>
+  <view class='mineContent_content_complete' wx:if='{{choice == 2}}'>
+    <view wx:if='{{!undone}}' style='padding-top:140rpx;'>
+      <image src='../../img/noRecord.png' style='width:100px;height:80px;' />
+      <view class='mineContent_noLogin_text'>你没有未完成测评记录</view>
+    </view>
+    <view class='textBox' bindtap='toTest' wx:for='{{undoneList}}' data-msg='{{item}}' wx:key='index' wx:if='{{undone}}'>
+      <view class='textBox_left'>
+        <view class='textBox_title'>
+          {{item.scale_name}}
+        </view>
+        <view class='textBox_content'>
+          {{item.intro}}
+        </view>
+        <view class='textBox_bottom'>
+          <view>
+            <image src='../../img/clock.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+            <text class='textBox_bottom_text'>测试时间：{{item.duration}}分钟</text>
+          </view>
+          <view>
+            <image src='../../img/test.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+            <text class='textBox_bottom_text'>题目：0/{{item.subject_num}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='textBox_right'>
+        <image src="{{'https://xcx.cepingle.com' + item.scale_pic}}" class='textBox_right_image'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 未登录状态 -->
+<view class='mineContent_noLogin' wx:if='{{!isLogin}}'>
+  <image src='../../img/noRecord.png' style='width:100px;height:80px;' />
+  <view class='mineContent_noLogin_text'>请先登录</view>
+</view>

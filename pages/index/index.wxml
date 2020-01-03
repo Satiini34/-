@@ -1,0 +1,30 @@
+<view style='width:100%;height:100%;'>
+  <view class='textBox' bindtap='toTest' wx:for='{{testList}}' data-msg='{{item}}' wx:key='index'>
+    <view class='textBox_left'>
+      <view class='textBox_title'>
+        {{item.scale_name}}
+      </view>
+      <view class='textBox_content'>
+        {{item.intro}}
+      </view> 
+      <view class='textBox_bottom'>
+        <view>
+          <image src='../../img/clock.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+          <text class='textBox_bottom_text'>测试时间：{{item.duration}}分钟</text>
+        </view>
+        <view>
+          <image src='../../img/test.png' style='width:10px;height:10px;margin-right:10rpx;vertical-align:-2rpx;'></image>
+          <text class='textBox_bottom_text'>题目：0/{{item.subject_num}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='textBox_right'>
+      <image src="{{'https://xcx.cepingle.com' + item.scale_pic}}" class='textBox_right_image'></image>
+    </view>
+  </view>
+  <!-- <view wx:if='{{!listShow}}' bindtap='scanNow'>
+    扫码测试
+  </view> -->
+</view>
+
+<!-- <navigator url='../canvas/canvas'>跳转</navigator> -->

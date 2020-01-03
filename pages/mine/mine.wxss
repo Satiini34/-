@@ -1,0 +1,118 @@
+.mineHeader {
+  width: 100%;
+  height: 360rpx;
+  background: #45aaf0;
+  position: relative;
+}
+.noLoginHead {
+  position: absolute;
+  left: 50%;
+  top: 50rpx;
+  transform: translateX(-50%);
+}
+.nickName {
+  font-size: 32rpx;
+  color: #fff;
+  position: absolute;
+  top: 240rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.watchMore {
+  font-size: 26rpx;
+  color: #ddd;
+  position: absolute;
+  top: 184rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.noLogin {
+  width: 120rpx;
+  height: 60rpx;
+  background: #fff;
+  color: #333;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.mineContent_noLogin {
+  width: 100%;
+  padding-top: 240rpx;
+  text-align: center;
+}
+.mineContent_noLogin_text {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.mineContent {
+  width: 96%;
+  position: relative;
+  left: 2%;
+  box-sizing: border-box;
+  background: #fff;
+  /* border-left: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1; */
+}
+.mineContent_header {
+  width: 100%;
+  height: 104rpx;
+  background: #fff;
+  position: absolute;
+  top: -20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f1f1f1;
+}
+.mineContent_header_complete {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.mineContent_header_nocomplete {
+  width: 50%;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32rpx;
+  color: #333;
+}
+.mineContent_header_complete_text {
+  color: #108ee9;
+  border-bottom: 4px solid #108ee9;
+  padding-bottom: 26rpx;
+}
+.mineContent_content_complete {
+   padding-top: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+.toComplete {
+  color: #108ee9;
+  text-decoration: underline;
+  font-size: 32rpx;
+  letter-spacing: 2prx;
+  margin-top: 40rpx;
+  font-weight: bold;
+}
+
+.create_time {
+  margin-top: -2rpx;
+  font-size: 22rpx;
+  color: #666;
+  text-align: left;
+}

@@ -1,0 +1,13 @@
+<!-- <view class='chartsHeader'>
+  <view>16PF测试结果</view>
+</view>
+<view class="container">
+  <ff-canvas id="column-dom" canvas-id="column" opts="{{ opts }}"></ff-canvas>
+</view>
+<view class="container1">
+  <ff-canvas id="column-dom" canvas-id="column" opts="{{ opts1 }}"></ff-canvas>
+</view> -->
+<!-- <view class='ts' style='top:{{firstOptTop}}px'></view> -->
+<web-view src='https://xcx.cepingle.com/api/api/getresultforwap/id/27.html'></web-view>
+
+

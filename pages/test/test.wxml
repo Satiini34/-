@@ -1,0 +1,52 @@
+<view style='width:100%;height:100%;overflow:hidden;' wx:if='{{loaded}}'>
+  <view class='test_header'>
+    <view class='testNo'>
+      <text style='color:#4daff5'>{{testNo}}</text>/{{subjects.length}}
+    </view>
+  </view>
+  <view class='testLine'>
+    <view class='testLineNow' style="width:{{testLineNow}}%"></view>
+  </view> 
+
+  <view class='test_content' wx:for='{{subjects}}' wx:for-item='item' wx:key='{{index}}'>
+    <view class="test_content_question {{next == true? 'animated fadeInLeft veryFaster ':'animated veryFaster fadeInRight'}}" wx:if='{{testNo == index + 1}}'>
+      <view class='test_content_question_topic'>{{item.question}}</view>
+      <view wx:for='{{item.options}}' class='test_content_question_answer' wx:key='' catchtap='chooseAnswer' wx:for-item='cell' data-select='{{cell.selection}}' id='{{item.subject_id}}'>
+        <view ><text>{{cell.selection}}、</text> <text>{{cell.info}}</text></view>
+        <view>
+          <image src='../../img/select.png' style='width:26rpx;height:26rpx;' wx:if='{{item.pick != cell.selection}}'></image>
+          <image src='../../img/selected.png' style='width:26rpx;height:26rpx;' wx:if='{{item.pick == cell.selection}}'></image>
+        </view>
+      </view>
+    </view> 
+  </view>
+
+  <!-- <swiper class='test_content' style='width:92%;height:70%;' current='{{testNo - 1}}' duration='300'>
+    <block wx:for="{{subjects}}" wx:key="{{index}}">
+      <swiper-item catchtouchmove="stopTouchMove">
+        <view class="test_content_question">
+          <view class='test_content_question_topic'>{{item.question}}</view>
+          <view wx:for='{{item.options}}' class='test_content_question_answer' wx:key='' catchtap='chooseAnswer' wx:for-item='cell' data-select='{{cell.selection}}' id='{{item.subject_id}}'>
+            <view ><text>{{cell.selection}}、</text> <text>{{cell.info}}</text></view>
+            <view>
+              <image src='../../img/select.png' style='width:26rpx;height:26rpx;' wx:if='{{item.pick != cell.selection}}'></image>
+              <image src='../../img/selected.png' style='width:26rpx;height:26rpx;' wx:if='{{item.pick == cell.selection}}'></image>
+            </view>
+          </view>
+        </view> 
+      </swiper-item>
+    </block>
+  </swiper> -->
+
+  <view class='testBottom' wx:if='{{testNo != 1}}'>
+    <view class='testBottom_left' bindtap='lastQ'>
+      <text>上一题</text>
+    </view>
+    <view class='testBottom_right' bindtap='submit' wx:if='{{ testNoComplete == subjects.length }}' >
+      <text>提交</text>
+    </view>
+    <view class='testBottom_right' wx:if='{{ testNoComplete != subjects.length }}' bindtap='temporary'>
+      <text>临时保存</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<view class='success_top'>
+  <image src='../../img/submitSuccess.png' style='width:88px;height:88px;margin-top:160rpx;'></image>
+  <view class='successText'>提交成功</view>
+</view>
+<view class='look' bindtap='result' wx:if='{{result}}'>查看结果</view>
+<view class='back' bindtap='back'>返回首页</view>
